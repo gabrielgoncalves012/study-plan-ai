@@ -1,0 +1,210 @@
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { Clock, BookOpen, Target, Flame } from "lucide-react";
+
+interface Task {
+  id: string;
+  subject: string;
+  topic: string;
+  duration: string;
+  completed: boolean;
+}
+
+const initialTasks: Task[] = [
+  { id: "1", subject: "Português", topic: "Concordância Verbal", duration: "45 min", completed: true },
+  { id: "2", subject: "Matemática", topic: "Razão e Proporção", duration: "60 min", completed: true },
+  { id: "3", subject: "Direito Constitucional", topic: "Direitos Fundamentais", duration: "50 min", completed: false },
+  { id: "4", subject: "Informática", topic: "Redes de Computadores", duration: "40 min", completed: false },
+  { id: "5", subject: "Raciocínio Lógico", topic: "Proposições", duration: "45 min", completed: false },
+];
+
+const Dashboard = () => {
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+
+  const completedTasks = tasks.filter((t) => t.completed).length;
+  const progress = Math.round((completedTasks / tasks.length) * 100);
+
+  const toggleTask = (id: string) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      {/* Header */}
+      <div>
+        <h1 className="text-3xl font-bold">Olá, Maria! 👋</h1>
+        <p className="text-muted-foreground">
+          Veja seu cronograma de estudos para hoje.
+        </p>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Card>
+          <CardContent className="flex items-center gap-4 p-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+              <Target className="h-6 w-6 text-primary" />
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Progresso Hoje</p>
+              <p className="text-2xl font-bold">{progress}%</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="flex items-center gap-4 p-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-success/10">
+              <BookOpen className="h-6 w-6 text-success" />
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Tarefas Concluídas</p>
+              <p className="text-2xl font-bold">{completedTasks}/{tasks.length}</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="flex items-center gap-4 p-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-warning/10">
+              <Clock className="h-6 w-6 text-warning" />
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Tempo Restante</p>
+              <p className="text-2xl font-bold">2h 15min</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="flex items-center gap-4 p-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/10">
+              <Flame className="h-6 w-6 text-destructive" />
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Dias Seguidos</p>
+              <p className="text-2xl font-bold">7 dias</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Main Content */}
+      <div className="grid gap-6 lg:grid-cols-3">
+        {/* Today's Schedule */}
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              📚 Seu Cronograma de Hoje
+            </CardTitle>
+            <CardDescription>
+              Complete suas tarefas para manter o ritmo de estudos
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="mb-4">
+              <div className="mb-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Progresso do dia</span>
+                <span className="font-medium">{progress}%</span>
+              </div>
+              <Progress value={progress} className="h-2" />
+            </div>
+
+            <div className="space-y-3">
+              {tasks.map((task) => (
+                <div
+                  key={task.id}
+                  className={`flex items-center gap-4 rounded-lg border p-4 transition-colors ${
+                    task.completed ? "bg-muted/50" : "hover:bg-accent/50"
+                  }`}
+                >
+                  <Checkbox
+                    checked={task.completed}
+                    onCheckedChange={() => toggleTask(task.id)}
+                    className="h-5 w-5"
+                  />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`font-medium ${
+                          task.completed ? "line-through text-muted-foreground" : ""
+                        }`}
+                      >
+                        {task.subject}
+                      </span>
+                      <Badge variant="secondary" className="text-xs">
+                        {task.duration}
+                      </Badge>
+                    </div>
+                    <p
+                      className={`text-sm ${
+                        task.completed ? "text-muted-foreground" : "text-muted-foreground"
+                      }`}
+                    >
+                      {task.topic}
+                    </p>
+                  </div>
+                  {task.completed && (
+                    <Badge className="bg-success text-success-foreground">
+                      Concluído
+                    </Badge>
+                  )}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Stats */}
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">🎯 Meta da Semana</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="mb-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">20h de estudo</span>
+                <span className="font-medium">14h / 20h</span>
+              </div>
+              <Progress value={70} className="h-2" />
+              <p className="mt-2 text-sm text-muted-foreground">
+                Faltam 6 horas para bater sua meta!
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">💡 Dica do Dia</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Estudar em blocos de 45 minutos com pausas de 10 minutos aumenta
+                a retenção em até 25%. Experimente a técnica Pomodoro!
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/50 bg-primary/5">
+            <CardContent className="p-4">
+              <p className="text-center text-sm font-medium">
+                🚀 Você está evoluindo!
+                <br />
+                <span className="text-muted-foreground">Continue assim!</span>
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
