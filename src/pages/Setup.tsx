@@ -67,7 +67,7 @@ const Setup = () => {
           </div>
 
           {/* Options */}
-          <div className="mb-8 grid gap-4 sm:grid-cols-3">
+          <div className="mb-6 sm:mb-8 grid gap-3 sm:gap-4 sm:grid-cols-3">
             <Card
               className={cn(
                 "cursor-pointer transition-all hover:shadow-lg",
@@ -75,18 +75,18 @@ const Setup = () => {
               )}
               onClick={() => setSelectedOption("upload")}
             >
-              <CardContent className="p-6 text-center">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-                  <FileUp className="h-7 w-7 text-primary" />
+              <CardContent className="p-4 sm:p-6 text-center">
+                <div className="mb-3 sm:mb-4 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-primary/10">
+                  <FileUp className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
                 </div>
-                <h3 className="mb-1 font-semibold">Upload de Edital</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="mb-1 font-semibold text-sm sm:text-base">Upload de Edital</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Envie o PDF do edital do seu concurso
                 </p>
                 {selectedOption === "upload" && (
-                  <div className="mt-3 flex justify-center">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-                      <Check className="h-4 w-4 text-primary-foreground" />
+                  <div className="mt-2 sm:mt-3 flex justify-center">
+                    <div className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-primary">
+                      <Check className="h-3 w-3 sm:h-4 sm:w-4 text-primary-foreground" />
                     </div>
                   </div>
                 )}
@@ -100,18 +100,18 @@ const Setup = () => {
               )}
               onClick={() => setSelectedOption("link")}
             >
-              <CardContent className="p-6 text-center">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-                  <LinkIcon className="h-7 w-7 text-primary" />
+              <CardContent className="p-4 sm:p-6 text-center">
+                <div className="mb-3 sm:mb-4 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-primary/10">
+                  <LinkIcon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
                 </div>
-                <h3 className="mb-1 font-semibold">Colar Link</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="mb-1 font-semibold text-sm sm:text-base">Colar Link</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Cole o link do edital publicado
                 </p>
                 {selectedOption === "link" && (
-                  <div className="mt-3 flex justify-center">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-                      <Check className="h-4 w-4 text-primary-foreground" />
+                  <div className="mt-2 sm:mt-3 flex justify-center">
+                    <div className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-primary">
+                      <Check className="h-3 w-3 sm:h-4 sm:w-4 text-primary-foreground" />
                     </div>
                   </div>
                 )}
@@ -125,18 +125,18 @@ const Setup = () => {
               )}
               onClick={() => setSelectedOption("area")}
             >
-              <CardContent className="p-6 text-center">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-                  <BookOpen className="h-7 w-7 text-primary" />
+              <CardContent className="p-4 sm:p-6 text-center">
+                <div className="mb-3 sm:mb-4 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-primary/10">
+                  <BookOpen className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
                 </div>
-                <h3 className="mb-1 font-semibold">Escolher Área</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="mb-1 font-semibold text-sm sm:text-base">Escolher Área</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Selecione uma área de concursos
                 </p>
                 {selectedOption === "area" && (
-                  <div className="mt-3 flex justify-center">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-                      <Check className="h-4 w-4 text-primary-foreground" />
+                  <div className="mt-2 sm:mt-3 flex justify-center">
+                    <div className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-primary">
+                      <Check className="h-3 w-3 sm:h-4 sm:w-4 text-primary-foreground" />
                     </div>
                   </div>
                 )}
@@ -146,32 +146,32 @@ const Setup = () => {
 
           {/* Area Selection */}
           {selectedOption === "area" && (
-            <Card className="mb-8 animate-fade-in">
-              <CardHeader>
-                <CardTitle>Selecione a área do concurso</CardTitle>
-                <CardDescription>
+            <Card className="mb-6 sm:mb-8 animate-fade-in">
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-lg sm:text-xl">Selecione a área do concurso</CardTitle>
+                <CardDescription className="text-xs sm:text-sm">
                   Vamos criar um cronograma base com as matérias mais comuns dessa área.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
+                <div className="grid gap-2 sm:gap-3 grid-cols-2 lg:grid-cols-3">
                   {areaOptions.map((area) => (
                     <div
                       key={area.id}
                       className={cn(
-                        "cursor-pointer rounded-lg border p-4 transition-colors hover:bg-accent",
+                        "cursor-pointer rounded-lg border p-3 sm:p-4 transition-colors hover:bg-accent",
                         selectedArea === area.id && "border-primary bg-primary/5"
                       )}
                       onClick={() => setSelectedArea(area.id)}
                     >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="font-medium">{area.label}</p>
-                          <p className="text-sm text-muted-foreground">{area.description}</p>
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="min-w-0">
+                          <p className="font-medium text-sm sm:text-base">{area.label}</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground truncate">{area.description}</p>
                         </div>
                         {selectedArea === area.id && (
-                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary">
-                            <Check className="h-3 w-3 text-primary-foreground" />
+                          <div className="flex h-4 w-4 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded-full bg-primary">
+                            <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary-foreground" />
                           </div>
                         )}
                       </div>

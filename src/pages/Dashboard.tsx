@@ -39,120 +39,120 @@ const Dashboard = () => {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold">Olá, Maria! 👋</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold">Olá, Maria! 👋</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           Veja seu cronograma de estudos para hoje.
         </p>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-              <Target className="h-6 w-6 text-primary" />
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary/10">
+              <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Progresso Hoje</p>
-              <p className="text-2xl font-bold">{progress}%</p>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Progresso Hoje</p>
+              <p className="text-xl sm:text-2xl font-bold">{progress}%</p>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-success/10">
-              <BookOpen className="h-6 w-6 text-success" />
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-success/10">
+              <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-success" />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Tarefas Concluídas</p>
-              <p className="text-2xl font-bold">{completedTasks}/{tasks.length}</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-warning/10">
-              <Clock className="h-6 w-6 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Tempo Restante</p>
-              <p className="text-2xl font-bold">2h 15min</p>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Tarefas</p>
+              <p className="text-xl sm:text-2xl font-bold">{completedTasks}/{tasks.length}</p>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/10">
-              <Flame className="h-6 w-6 text-destructive" />
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-warning/10">
+              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-warning" />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Dias Seguidos</p>
-              <p className="text-2xl font-bold">7 dias</p>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Restante</p>
+              <p className="text-xl sm:text-2xl font-bold">2h 15m</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-destructive/10">
+              <Flame className="h-5 w-5 sm:h-6 sm:w-6 text-destructive" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Sequência</p>
+              <p className="text-xl sm:text-2xl font-bold">7 dias</p>
             </div>
           </CardContent>
         </Card>
       </div>
 
       {/* Main Content */}
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
         {/* Today's Schedule */}
         <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
               📚 Seu Cronograma de Hoje
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-xs sm:text-sm">
               Complete suas tarefas para manter o ritmo de estudos
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
             <div className="mb-4">
-              <div className="mb-2 flex items-center justify-between text-sm">
+              <div className="mb-2 flex items-center justify-between text-xs sm:text-sm">
                 <span className="text-muted-foreground">Progresso do dia</span>
                 <span className="font-medium">{progress}%</span>
               </div>
               <Progress value={progress} className="h-2" />
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {tasks.map((task) => (
                 <div
                   key={task.id}
-                  className={`flex items-center gap-4 rounded-lg border p-4 transition-colors ${
+                  className={`flex items-center gap-3 sm:gap-4 rounded-lg border p-3 sm:p-4 transition-colors ${
                     task.completed ? "bg-muted/50" : "hover:bg-accent/50"
                   }`}
                 >
                   <Checkbox
                     checked={task.completed}
                     onCheckedChange={() => toggleTask(task.id)}
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                   />
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span
-                        className={`font-medium ${
+                        className={`font-medium text-sm sm:text-base ${
                           task.completed ? "line-through text-muted-foreground" : ""
                         }`}
                       >
                         {task.subject}
                       </span>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-[10px] sm:text-xs">
                         {task.duration}
                       </Badge>
                     </div>
                     <p
-                      className={`text-sm ${
+                      className={`text-xs sm:text-sm ${
                         task.completed ? "text-muted-foreground" : "text-muted-foreground"
-                      }`}
+                      } truncate`}
                     >
                       {task.topic}
                     </p>
                   </div>
                   {task.completed && (
-                    <Badge className="bg-success text-success-foreground">
+                    <Badge className="bg-success text-success-foreground text-[10px] sm:text-xs hidden sm:flex">
                       Concluído
                     </Badge>
                   )}

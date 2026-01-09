@@ -83,15 +83,15 @@ const Cronograma = () => {
   const totalTasks = selectedDayData?.tasks.length || 0;
 
   return (
-    <div className="space-y-6 animate-fade-in">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 animate-fade-in">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
-          <h1 className="text-3xl font-bold">Cronograma</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-bold">Cronograma</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Seu plano de estudos semanal organizado pela IA
           </p>
         </div>
-        <Badge variant="secondary" className="flex items-center gap-1">
+        <Badge variant="secondary" className="flex items-center gap-1 w-fit text-xs">
           <Sparkles className="h-3 w-3" />
           Ajustado automaticamente
         </Badge>
@@ -99,18 +99,18 @@ const Cronograma = () => {
 
       {/* Week Navigation */}
       <Card>
-        <CardContent className="p-4">
-          <div className="mb-4 flex items-center justify-between">
-            <Button variant="ghost" size="icon">
+        <CardContent className="p-3 sm:p-4">
+          <div className="mb-3 sm:mb-4 flex items-center justify-between">
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
               <ChevronLeft className="h-4 w-4" />
             </Button>
-            <span className="font-medium">Esta Semana</span>
-            <Button variant="ghost" size="icon">
+            <span className="font-medium text-sm sm:text-base">Esta Semana</span>
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
 
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2">
             {weekData.map((day, index) => {
               const dayProgress =
                 day.tasks.length > 0
@@ -123,7 +123,7 @@ const Cronograma = () => {
                 <button
                   key={day.date}
                   onClick={() => setSelectedDay(index)}
-                  className={`flex flex-col items-center rounded-lg p-3 transition-colors ${
+                  className={`flex flex-col items-center rounded-lg p-2 sm:p-3 transition-colors ${
                     selectedDay === index
                       ? "bg-primary text-primary-foreground"
                       : day.isToday
@@ -131,16 +131,16 @@ const Cronograma = () => {
                       : "hover:bg-accent"
                   }`}
                 >
-                  <span className="text-xs font-medium uppercase opacity-70">
+                  <span className="text-[10px] sm:text-xs font-medium uppercase opacity-70">
                     {day.dayName}
                   </span>
-                  <span className="text-lg font-bold">{day.dayNumber}</span>
+                  <span className="text-sm sm:text-lg font-bold">{day.dayNumber}</span>
                   {day.tasks.length > 0 && (
-                    <div className="mt-1 flex items-center gap-1">
+                    <div className="mt-0.5 sm:mt-1 flex items-center gap-1">
                       {dayProgress === 100 ? (
-                        <Check className="h-3 w-3 text-success" />
+                        <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-success" />
                       ) : (
-                        <span className="text-xs">{dayProgress}%</span>
+                        <span className="text-[10px] sm:text-xs">{dayProgress}%</span>
                       )}
                     </div>
                   )}
@@ -152,60 +152,60 @@ const Cronograma = () => {
       </Card>
 
       {/* Day Details */}
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-lg sm:text-xl">
               <span>
                 {selectedDayData?.isToday ? "Hoje" : selectedDayData?.dayName},{" "}
                 {selectedDayData?.dayNumber}
               </span>
               {totalTasks > 0 && (
-                <Badge variant={completedTasks === totalTasks ? "default" : "secondary"}>
+                <Badge variant={completedTasks === totalTasks ? "default" : "secondary"} className="w-fit text-xs">
                   {completedTasks}/{totalTasks} concluídas
                 </Badge>
               )}
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
             {selectedDayData?.tasks.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center">
-                <p className="text-lg font-medium">Dia de descanso! 😴</p>
-                <p className="text-muted-foreground">
+              <div className="flex flex-col items-center justify-center py-8 sm:py-12 text-center">
+                <p className="text-base sm:text-lg font-medium">Dia de descanso! 😴</p>
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Aproveite para revisar ou relaxar.
                 </p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {selectedDayData?.tasks.map((task) => (
                   <div
                     key={task.id}
-                    className={`flex items-center gap-4 rounded-lg border p-4 transition-colors ${
+                    className={`flex items-center gap-3 sm:gap-4 rounded-lg border p-3 sm:p-4 transition-colors ${
                       task.completed ? "bg-muted/50" : "hover:bg-accent/50"
                     }`}
                   >
                     <Checkbox
                       checked={task.completed}
                       onCheckedChange={() => toggleTask(selectedDay, task.id)}
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                     />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span
-                          className={`font-medium ${
+                          className={`font-medium text-sm sm:text-base ${
                             task.completed ? "line-through text-muted-foreground" : ""
                           }`}
                         >
                           {task.subject}
                         </span>
-                        <Badge variant="outline" className="text-xs">
+                        <Badge variant="outline" className="text-[10px] sm:text-xs">
                           {task.duration}
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground">{task.topic}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground truncate">{task.topic}</p>
                     </div>
                     {task.completed && (
-                      <Badge className="bg-success text-success-foreground">
+                      <Badge className="bg-success text-success-foreground text-[10px] sm:text-xs hidden sm:flex">
                         <Check className="mr-1 h-3 w-3" />
                         Feito
                       </Badge>

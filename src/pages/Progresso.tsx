@@ -52,86 +52,86 @@ const Progresso = () => {
   const excellentSubjects = subjectProgress.filter((s) => s.status === "excellent").length;
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-4 sm:space-y-6 animate-fade-in">
       <div>
-        <h1 className="text-3xl font-bold">Seu Progresso</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold">Seu Progresso</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           Acompanhe sua evolução em cada matéria
         </p>
       </div>
 
       {/* Stats Overview */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-              <Target className="h-6 w-6 text-primary" />
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary/10">
+              <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Progresso Geral</p>
-              <p className="text-2xl font-bold">{overallProgress}%</p>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Progresso</p>
+              <p className="text-xl sm:text-2xl font-bold">{overallProgress}%</p>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-success/10">
-              <Clock className="h-6 w-6 text-success" />
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-success/10">
+              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-success" />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Horas Estudadas</p>
-              <p className="text-2xl font-bold">{totalHoursStudied}h</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-warning/10">
-              <TrendingUp className="h-6 w-6 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Matérias</p>
-              <p className="text-2xl font-bold">{subjectProgress.length}</p>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Horas</p>
+              <p className="text-xl sm:text-2xl font-bold">{totalHoursStudied}h</p>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="flex items-center gap-4 p-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-              <Award className="h-6 w-6 text-primary" />
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-warning/10">
+              <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-warning" />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Excelentes</p>
-              <p className="text-2xl font-bold">{excellentSubjects}</p>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Matérias</p>
+              <p className="text-xl sm:text-2xl font-bold">{subjectProgress.length}</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary/10">
+              <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">Excelentes</p>
+              <p className="text-xl sm:text-2xl font-bold">{excellentSubjects}</p>
             </div>
           </CardContent>
         </Card>
       </div>
 
       {/* Subject Progress */}
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>Progresso por Matéria</CardTitle>
-            <CardDescription>
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-lg sm:text-xl">Progresso por Matéria</CardTitle>
+            <CardDescription className="text-xs sm:text-sm">
               Clique em uma matéria para ver detalhes
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-3 sm:space-y-4 p-4 pt-0 sm:p-6 sm:pt-0">
             {subjectProgress.map((item) => (
               <div
                 key={item.subject}
-                className="rounded-lg border p-4 transition-colors hover:bg-accent/50"
+                className="rounded-lg border p-3 sm:p-4 transition-colors hover:bg-accent/50"
               >
-                <div className="mb-2 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="font-medium">{item.subject}</span>
+                <div className="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                    <span className="font-medium text-sm sm:text-base">{item.subject}</span>
                     {getStatusBadge(item.status)}
                   </div>
-                  <span className={`font-bold ${getStatusColor(item.status)}`}>
+                  <span className={`font-bold text-sm sm:text-base ${getStatusColor(item.status)}`}>
                     {item.progress}%
                   </span>
                 </div>
@@ -145,7 +145,7 @@ const Progresso = () => {
                       : ""
                   }`}
                 />
-                <div className="mt-2 flex items-center justify-between text-sm text-muted-foreground">
+                <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-muted-foreground gap-0.5">
                   <span>
                     {item.hoursStudied}h de {item.totalHours}h planejadas
                   </span>
