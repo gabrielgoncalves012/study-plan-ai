@@ -58,42 +58,42 @@ const Edital = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
         {/* Upload Section */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Upload className="h-5 w-5" />
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                <Upload className="h-4 w-4 sm:h-5 sm:w-5" />
                 Upload de PDF
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="text-xs sm:text-sm">
                 Arraste e solte ou clique para enviar o edital
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
               <div
-                className="flex min-h-[200px] cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 p-6 transition-colors hover:border-primary/50 hover:bg-muted"
+                className="flex min-h-[150px] sm:min-h-[200px] cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 p-4 sm:p-6 transition-colors hover:border-primary/50 hover:bg-muted"
                 onClick={handleFileUpload}
               >
                 {uploadedFile ? (
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <FileText className="h-6 w-6 text-primary" />
+                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
+                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-primary/10">
+                      <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
-                    <div>
-                      <p className="font-medium">{uploadedFile}</p>
-                      <p className="text-sm text-muted-foreground">Upload concluído</p>
+                    <div className="text-center sm:text-left">
+                      <p className="font-medium text-sm sm:text-base">{uploadedFile}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Upload concluído</p>
                     </div>
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-success">
-                      <Check className="h-4 w-4 text-success-foreground" />
+                    <div className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-success">
+                      <Check className="h-3 w-3 sm:h-4 sm:w-4 text-success-foreground" />
                     </div>
                   </div>
                 ) : (
                   <>
-                    <Upload className="mb-4 h-10 w-10 text-muted-foreground" />
-                    <p className="mb-1 font-medium">Clique para enviar</p>
-                    <p className="text-sm text-muted-foreground">
+                    <Upload className="mb-3 sm:mb-4 h-8 w-8 sm:h-10 sm:w-10 text-muted-foreground" />
+                    <p className="mb-1 font-medium text-sm sm:text-base">Clique para enviar</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       PDF até 10MB
                     </p>
                   </>
@@ -103,26 +103,27 @@ const Edital = () => {
           </Card>
 
           <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <LinkIcon className="h-5 w-5" />
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                <LinkIcon className="h-4 w-4 sm:h-5 sm:w-5" />
                 Colar Link do Edital
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="text-xs sm:text-sm">
                 Cole o link direto do edital publicado
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 p-4 pt-0 sm:p-6 sm:pt-0">
               <div className="space-y-2">
-                <Label htmlFor="edital-link">URL do Edital</Label>
+                <Label htmlFor="edital-link" className="text-sm">URL do Edital</Label>
                 <Input
                   id="edital-link"
                   placeholder="https://exemplo.com/edital.pdf"
                   value={linkValue}
                   onChange={(e) => setLinkValue(e.target.value)}
+                  className="text-sm"
                 />
               </div>
-              <Button onClick={handleLinkSubmit} disabled={!linkValue}>
+              <Button onClick={handleLinkSubmit} disabled={!linkValue} size="sm" className="sm:size-default">
                 Analisar Link
               </Button>
             </CardContent>
@@ -130,13 +131,13 @@ const Edital = () => {
 
           {/* AI Notice */}
           <Card className="border-primary/50 bg-primary/5">
-            <CardContent className="flex items-center gap-4 p-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Brain className="h-5 w-5 text-primary" />
+            <CardContent className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4">
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                <Brain className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               </div>
               <div>
-                <p className="font-medium">Análise por Inteligência Artificial</p>
-                <p className="text-sm text-muted-foreground">
+                <p className="font-medium text-sm sm:text-base">Análise por Inteligência Artificial</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   A IA irá identificar matérias, pesos e criar um cronograma otimizado.
                 </p>
               </div>

@@ -9,12 +9,12 @@ export function AppLayout() {
       <div className="flex min-h-screen w-full">
         <AppSidebar />
         <main className="flex-1 overflow-auto">
-          <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b bg-background/95 px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:hidden">
+          <header className="sticky top-0 z-40 flex h-12 sm:h-14 items-center gap-4 border-b bg-background/95 px-4 sm:px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:hidden">
             <SidebarTrigger>
               <Menu className="h-5 w-5" />
             </SidebarTrigger>
           </header>
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             <Outlet />
           </div>
         </main>

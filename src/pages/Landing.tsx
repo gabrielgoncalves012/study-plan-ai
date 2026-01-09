@@ -15,29 +15,29 @@ const Landing = () => {
             </div>
             <span className="text-xl font-bold">EstudaConcursos AI</span>
           </div>
-          <div className="flex items-center gap-3">
-            <Link to="/dashboard">
-              <Button variant="ghost">Entrar</Button>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link to="/login">
+              <Button variant="ghost" size="sm" className="sm:size-default">Entrar</Button>
             </Link>
             <Link to="/setup">
-              <Button>Começar Grátis</Button>
+              <Button size="sm" className="sm:size-default">Começar Grátis</Button>
             </Link>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
+      <section className="container mx-auto px-4 py-12 sm:py-16 lg:py-20 text-center">
         <div className="mx-auto max-w-3xl animate-fade-in">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-4 py-1.5 text-sm">
-            <Zap className="h-4 w-4 text-primary" />
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm">
+            <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
             Potencializado por Inteligência Artificial
           </div>
-          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mb-4 sm:mb-6 text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl">
             Organize seus estudos para
             <span className="text-primary"> concursos públicos</span>
           </h1>
-          <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
+          <p className="mb-6 sm:mb-8 text-base text-muted-foreground sm:text-lg lg:text-xl">
             A IA analisa seu edital e cria um cronograma personalizado. 
             Estude de forma inteligente e acompanhe seu progresso em tempo real.
           </p>
@@ -57,10 +57,10 @@ const Landing = () => {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Como funciona</h2>
-          <p className="text-muted-foreground">
+      <section className="container mx-auto px-4 py-12 sm:py-16 lg:py-20">
+        <div className="mb-8 sm:mb-12 text-center">
+          <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl font-bold">Como funciona</h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Três passos simples para transformar sua preparação
           </p>
         </div>
@@ -104,11 +104,11 @@ const Landing = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="border-y bg-muted/30 py-20">
+      <section className="border-y bg-muted/30 py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-8 lg:gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="mb-6 text-3xl font-bold">
+              <h2 className="mb-4 sm:mb-6 text-2xl sm:text-3xl font-bold">
                 Por que escolher o EstudaConcursos AI?
               </h2>
               <div className="space-y-4">
@@ -170,12 +170,12 @@ const Landing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
+      <section className="container mx-auto px-4 py-12 sm:py-16 lg:py-20 text-center">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-3xl font-bold">
+          <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl font-bold">
             Pronto para começar sua jornada?
           </h2>
-          <p className="mb-8 text-lg text-muted-foreground">
+          <p className="mb-6 sm:mb-8 text-base sm:text-lg text-muted-foreground">
             Junte-se a milhares de concurseiros que já estão estudando de forma mais inteligente.
           </p>
           <Link to="/setup">
