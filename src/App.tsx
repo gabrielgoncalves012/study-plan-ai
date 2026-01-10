@@ -12,6 +12,7 @@ import Setup from "./pages/Setup";
 import Edital from "./pages/Edital";
 import Cronograma from "./pages/Cronograma";
 import Progresso from "./pages/Progresso";
+import MeusConcursos from "./pages/MeusConcursos";
 import Perfil from "./pages/Perfil";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/setup" element={<Setup />} />
             <Route element={<AppLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/meus-concursos" element={<MeusConcursos />} />
               <Route path="/edital" element={<Edital />} />
               <Route path="/cronograma" element={<Cronograma />} />
               <Route path="/progresso" element={<Progresso />} />

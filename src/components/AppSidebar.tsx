@@ -9,6 +9,7 @@ import {
   Sun,
   Brain,
   ChevronLeft,
+  Briefcase,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,7 @@ import {
 
 const menuItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
+  { title: "Meus Concursos", url: "/meus-concursos", icon: Briefcase },
   { title: "Cronograma", url: "/cronograma", icon: Calendar },
   { title: "Edital", url: "/edital", icon: FileText },
   { title: "Progresso", url: "/progresso", icon: TrendingUp },
