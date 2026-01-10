@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Clock, BookOpen, Target, Flame } from "lucide-react";
+
 
 interface Task {
   id: string;
@@ -45,56 +45,6 @@ const Dashboard = () => {
         </p>
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-        <Card>
-          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
-            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary/10">
-              <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs sm:text-sm text-muted-foreground truncate">Progresso Hoje</p>
-              <p className="text-xl sm:text-2xl font-bold">{progress}%</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
-            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-success/10">
-              <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-success" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs sm:text-sm text-muted-foreground truncate">Tarefas</p>
-              <p className="text-xl sm:text-2xl font-bold">{completedTasks}/{tasks.length}</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
-            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-warning/10">
-              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-warning" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs sm:text-sm text-muted-foreground truncate">Restante</p>
-              <p className="text-xl sm:text-2xl font-bold">2h 15m</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
-            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-destructive/10">
-              <Flame className="h-5 w-5 sm:h-6 sm:w-6 text-destructive" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs sm:text-sm text-muted-foreground truncate">Sequência</p>
-              <p className="text-xl sm:text-2xl font-bold">7 dias</p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
 
       {/* Main Content */}
       <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
